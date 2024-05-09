@@ -17,7 +17,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from Online_payment_fraud_detection import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('',views.homepage)
 ]
