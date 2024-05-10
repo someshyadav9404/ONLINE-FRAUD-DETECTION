@@ -59,6 +59,15 @@
 </head>
 
 <body>
+    <div class="user"> 
+        {% block title %}Home{% endblock %}
+        {% if user.is_authenticated %}
+            Hi {{user.username}}!
+        {% else %}
+            <p>You are not logged in</p>
+            <a href="{% url 'login' %}"> LOG IN</a>
+        {% endif %}
+    </div>
     <div class="head">
         <h1>Online Payment Fraud Detection</h1>
     </div>
