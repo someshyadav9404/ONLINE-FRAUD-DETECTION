@@ -71,6 +71,8 @@
 </head>
 
 <body>
+    {% if user.is_authenticated %}
+    Hi {{user.username}}!
     <div class="head">
         <h1>Online Payment Fraud Detection</h1>
     </div>
@@ -122,5 +124,9 @@
             <div><button type="submit">submit</button></div>
         </form>
     </div>
+    {% else %}
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}"></a>
+    {% endif %}
 </body>
 </html>
