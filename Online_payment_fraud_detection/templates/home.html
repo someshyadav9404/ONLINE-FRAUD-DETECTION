@@ -51,23 +51,28 @@
         input {
             font-size: 20px;
         }
-        input.btn{
+
+        input.btn {
             font-size: 30px;
             border-radius: 10%;
+        }
+
+        .user {
+            height:110px;
+            width:250px;
+            background-color: #83effd;
+            text-align:center;
+            border-style:solid;
+            border-radius:20px;
+            margin:auto;
+            margin-top:200px;
         }
     </style>
 </head>
 
 <body>
-    <div class="user"> 
-        {% block title %}Home{% endblock %}
         {% if user.is_authenticated %}
-            Hi {{user.username}}!
-        {% else %}
-            <p>You are not logged in</p>
-            <a href="{% url 'login' %}"> LOG IN</a>
-        {% endif %}
-    </div>
+        Hi {{user.username}}!
     <div class="head">
         <h1>Online Payment Fraud Detection</h1>
     </div>
@@ -127,5 +132,10 @@
             <div><button type="submit">submit</button></div>
         </form>
     </div>
+        {% else %}
+        <div class="user"><div><p>You are not logged in</p></div>
+        <div><a href="{% url 'login' %}"> LOG IN</a></div></div>
+        {% endif %}
 </body>
+
 </html>
