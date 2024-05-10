@@ -58,21 +58,19 @@
         }
 
         .user {
-            height:110px;
-            width:250px;
+            height: 110px;
+            width: 250px;
             background-color: #83effd;
-            text-align:center;
-            border-style:solid;
-            border-radius:20px;
-            margin:auto;
-            margin-top:200px;
+            text-align: center;
+            border-style: solid;
+            border-radius: 20px;
+            margin: auto;
+            margin-top: 200px;
         }
     </style>
 </head>
 
 <body>
-        {% if user.is_authenticated %}
-        Hi {{user.username}}!
     <div class="head">
         <h1>Online Payment Fraud Detection</h1>
     </div>
@@ -132,10 +130,5 @@
             <div><button type="submit">submit</button></div>
         </form>
     </div>
-        {% else %}
-        <div class="user"><div><p>You are not logged in</p></div>
-        <div><a href="{% url 'login' %}"> LOG IN</a></div></div>
-        {% endif %}
 </body>
-
 </html>
