@@ -82,6 +82,8 @@ for i in range(len(models)):
 	print('Validation Accuracy : ', ras(y_test, y_preds))
 	print()  
 # Saving model 
-import pickle
-save_model=pickle.dumps(models)
+import joblib 
+# save model with joblib 
+filename = 'joblib_model.save'
+joblib.dump(models, filename)
 
