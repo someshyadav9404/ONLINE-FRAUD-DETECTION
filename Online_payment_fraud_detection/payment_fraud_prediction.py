@@ -84,6 +84,6 @@ for i in range(len(models)):
 # Saving model 
 import joblib 
 # save model with joblib 
-filename = 'joblib_model.save'
+filename = 'Trained_model.save'
 joblib.dump(models, filename)
 
