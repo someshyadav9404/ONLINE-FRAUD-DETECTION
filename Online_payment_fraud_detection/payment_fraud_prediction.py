@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 # Reading dataframe
-url=('online_Fraud_balance.csv')
+url=('https://raw.githubusercontent.com/someshyadav9404/ONLINE-PAYMNET-FRAUD-DETECTION/main/Online_payment_fraud_detection/online_Fraud_balance.csv')
 data=pd.read_csv(url,index_col=0)
 data.head()
 # Getting sample
