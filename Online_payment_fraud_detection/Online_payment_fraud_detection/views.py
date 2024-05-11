@@ -49,11 +49,7 @@ sns.lineplot(data=data, x="amount", y="oldbalanceOrg", hue="type")
 data1=data.drop(['type','nameOrig','nameDest'],axis=1)
 # correlation
 plt.figure(figsize=(12, 6))
-sns.heatmap(data1.corr(),
-			cmap='BrBG',
-			fmt='.2f',
-			linewidths=2,
-			annot=True)
+sns.heatmap(data1.corr(),cmap='BrBG',fmt='.2f',linewidths=2,annot=True)
 # one hot enoding
 type_new = pd.get_dummies(data['type'], drop_first=True)
 data_new = pd.concat([data, type_new], axis=1)
@@ -67,8 +63,7 @@ X.shape,y.shape
 X.columns
 #Performing test train spilt
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(
-	X, y, test_size=0.3, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 X_train.head()
 y_train.head()
 from xgboost import XGBClassifier
@@ -76,12 +71,8 @@ from sklearn.metrics import roc_auc_score as ras
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
-models = [LogisticRegression(), XGBClassifier(),
-		SVC(kernel='rbf', probability=True),
-		RandomForestClassifier(n_estimators=7,
-								criterion='entropy',
-								random_state=7)]
-
+#creating model
+models = [LogisticRegression(), XGBClassifier(),SVC(kernel='rbf', probability=True),RandomForestClassifier(n_estimators=7,criterion='entropy',random_state=7)]
 for i in range(len(models)):
 	models[i].fit(X_train, y_train)
 	print(f'{models[i]} : ')
@@ -94,6 +85,7 @@ for i in range(len(models)):
 	print()   
 def homepage(request):
     try:
+	stp = request.GET.get('step')    
         txn = request.GET.get('transaction')
         amt = int(request.GET.get('amount'))
         cid = request.GET.get('cid')
@@ -102,6 +94,22 @@ def homepage(request):
         ob = int(request.GET.get('Old Balance'))
         rnb = int(request.GET.get('Recipient New Balance'))
         rob = int(request.GET.get('Recipient Old Balance'))
+	cash_out=debit=payment=transfer=0
+	if txn=='CASH_OUT':
+		cash_out=1
+	else if txn=='DEBIT':
+		debit=1
+	else if txn=='PAYMENT':
+		payment=1
+	else:
+	    transfer=1
+	prediction=[]
+	for i in range(len(models)):
+		prediction.append(models[i].predict([[step,amt,ob,nb,rob,rnb,cash_out,debit,payment,transfer]]))
+	if prediction.count(0)>prediction.count(1):
+		print("NoFraud")
+	else:
+		print("Fraud")
     except:
         pass 
     return render(request,"home.html")
