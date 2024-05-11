@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 # Reading dataframe
-url=('https://raw.githubusercontent.com/someshyadav9404/ONLINE-PAYMNET-FRAUD-DETECTION/main/online_Fraud_balance.csv')
+url=('online_Fraud_balance.csv')
 data=pd.read_csv(url,index_col=0)
 data.head()
 # Getting sample
@@ -81,4 +81,7 @@ for i in range(len(models)):
 	y_preds = models[i].predict_proba(X_test)[:, 1]
 	print('Validation Accuracy : ', ras(y_test, y_preds))
 	print()  
+# Saving model 
+import pickle
+save_model=pickle.dump(models)
 
