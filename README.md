@@ -3,16 +3,24 @@ model achieves about 99% accuracy
 
 Please follow the given step to run it
 
-Step 1:-cd Online_payment_fraud_detection
+Step 1:-Use following link to move to folder
+        
+        cd Online_payment_fraud_detection
 
-        click allow for permission
+        #click allow for permission
 
-Step 2:-pip install django
+Step 2:-Use given link to install django framework
 
-Step 3:-python manage.py createsuperuser
+        pip install django
 
-        password is hidden
+Step 3:-Use given link to create a user
 
-Step 4:-python manage.py runserver 0.0.0.0:8000
+        python manage.py createsuperuser
 
-        ctrl + click on the link
+        #password is hidden
+
+Step 4:-Use given link to run the server
+        
+        python manage.py runserver 0.0.0.0:8000
+
+        #ctrl + click on the link
