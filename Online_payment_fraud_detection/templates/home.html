@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
     <style>
         * {
@@ -12,11 +13,11 @@
         }
 
         body {
-            background-image: url('https://media.istockphoto.com/id/1395523535/vector/projection-of-a-credit-card-on-background-of-a-billboard-money-and-payment-target-page-for.jpg?s=612x612&w=0&k=20&c=6KOmtlXkg8De-FAUgavU6dcm-6KQ78jQG_DzIfxSOSg=');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            margin: 0;
+            background-image: url("static/images/mainpage.jpg"); 
+            background-size:cover;
+            background-position:center;
+            height:100vh;
+            margin:0;
         }
 
         .head {
@@ -31,7 +32,7 @@
         }
 
         .form {
-            margin-bottom: 10px;
+            margin-bottom:0px;
             padding: 50px;
             text-align: center;
             position: absolute;
@@ -42,6 +43,7 @@
 
         .formrow div {
             margin: 20px;
+            margin-bottom: 0px;
         }
 
         label {
@@ -67,12 +69,22 @@
             margin: auto;
             margin-top: 200px;
         }
+        h1{
+            font-style: italic;
+            color:#83effd;
+            font-size: 50px;
+        }
     </style>
 </head>
 
 <body>
     {% if user.is_authenticated %}
-    Hi {{user.username}}!
+    <h1>Hi {{user.username}}!</h1>
+    <a href="{% url 'logout' %}">Logout</a>
+    <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div> -->
     <div class="head">
         <h1>Online Payment Fraud Detection</h1>
     </div>
