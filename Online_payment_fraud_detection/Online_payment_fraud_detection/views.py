@@ -9,6 +9,8 @@ def homepage(request):
 			step = request.GET.get('step')    
 			txn  = request.GET.get('transaction')
 			amt  = int(request.GET.get('amount'))
+			cid = request.GET.get('Customerid')
+			rid = request.GET.get('Recipientid')
 			nb = int(request.GET.get('New Balance'))
 			ob = int(request.GET.get('Old Balance'))
 			rnb = int(request.GET.get('Recipient New Balance'))
@@ -32,7 +34,15 @@ def homepage(request):
 				print("Fraud")
 				pred = "Fraud"
 			output={
-				'output':pred
+				'output':pred,
+				'step':step,
+				'amt':amt,
+				'nb':nb,
+				'ob':ob,,
+				'rnb':rnb,
+				'rob':rob,
+				'cid':cid,
+				'rid':rid
 			}
 			return render(request,"home.html",output)
 	except:
