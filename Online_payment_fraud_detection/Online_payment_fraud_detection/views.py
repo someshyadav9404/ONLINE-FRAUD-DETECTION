@@ -38,7 +38,7 @@ def homepage(request):
 				'step':step,
 				'amt':amt,
 				'nb':nb,
-				'ob':ob,,
+				'ob':ob,
 				'rnb':rnb,
 				'rob':rob,
 				'cid':cid,
