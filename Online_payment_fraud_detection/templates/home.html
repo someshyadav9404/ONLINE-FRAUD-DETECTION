@@ -64,6 +64,12 @@
             color:#83effd;
             font-size: 50px;
             text-decoration: none;
+            text-transform:uppercase;
+            border-radius:10px;
+        }
+        a:hover{
+            background-color:white;
+            transition:1s;
         }
         .logout div{
             display:inline-block;
@@ -75,7 +81,10 @@
             border: solid 5px;
             border-radius:10px;
             color:blue;
-            }
+        }
+        input{
+            border-radius:10px;
+        }
     </style>
 </head>
 
@@ -83,10 +92,11 @@
                             <strong>Hey {{user.username}}</strong> The input data is {{ output }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>{% endif %}
+     
     {% if user.is_authenticated %}
     <div class="logout">
     <div><h1>Hi {{user.username}}!</h1></div>
-    <div style="float: right;"><h1><a  href="{% url 'logout' %}">Logout</a></h1></div></div>
+    <div style="float: right;"><h1><a  href="{% url 'login' %}">Logout</a></h1></div></div>
     <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Holy guacamole!</strong> You should check in on some of those fields below.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -99,7 +109,7 @@
             <div class="formrow">
                 <div>
                     <label for="step"> Step:</label>
-                    <input type="number" name="step" id="" value="">
+                    <input type="number" name="step" id="" value="{{step}}">
                 </div>
                 <div>
                     <label for="name"> Type of transaction:</label>
@@ -147,9 +157,9 @@
             <div><button type="submit">submit</button></div>
         </form>
     </div>
-    {% else %}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}">loginlogin</a>
+    {% else %} <div class="logout">
+        <div><h1>You are not logged in</h1></div>
+    <div style="float:right;"><h1><a href="{% url 'login' %}">login</a></h1></div></div>
     {% endif %}
 </body>
 </html>
