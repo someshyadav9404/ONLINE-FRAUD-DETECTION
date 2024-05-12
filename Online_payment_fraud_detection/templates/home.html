@@ -79,11 +79,10 @@
     </style>
 </head>
 
-<body>
-     <div class="alert alert-primary alert-dismissible fade show" role="alert">
-            <strong>Hey {{user.username}}</strong> The input data is {{ output }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+<body>{% if output %}<div class="alert alert-primary alert-dismissible fade show" role="alert">
+                            <strong>Hey {{user.username}}</strong> The input data is {{ output }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>{% endif %}
     {% if user.is_authenticated %}
     <div class="logout">
     <div><h1>Hi {{user.username}}!</h1></div>
