@@ -27,6 +27,8 @@ def homepage(request):
 			prediction=[]
 			test = pd.DataFrame(data=[[step,amt,ob,nb,rob,rnb,cash_out,debit,payment,transfer]],columns=['step', 'amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest','newbalanceDest', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER'])
 			prediction.append(models[0].predict(test))
+			prediction.append(models[2].predict(test))
+			prediction.append(models[3].predict(test))
 			if prediction.count(0)>prediction.count(1):
 				print("NoFraud")
 				pred = "not fraud"
