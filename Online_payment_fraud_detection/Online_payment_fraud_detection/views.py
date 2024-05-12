@@ -23,16 +23,21 @@ def homepage(request):
 			else:
 				transfer=1
 			prediction=[]
-			test=pd.DataFrame(data=[[step,amt,ob,nb,rob,rnb,cash_out,debit,payment,transfer]],columns=['step', 'amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest','newbalanceDest', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER'])
-			test
+			test = pd.DataFrame(data=[[step,amt,ob,nb,rob,rnb,cash_out,debit,payment,transfer]],columns=['step', 'amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest',
+       		'newbalanceDest', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER'])
+			pred = 0
 			for i in range(len(models)):
-				print(i)
 				prediction.append(models[i].predict(test))
-			print(prediction)
 			if prediction.count(0)>prediction.count(1):
 				print("NoFraud")
+				pred = 0
 			else:
 				print("Fraud")
+				pred = 1
+			output={
+				'output':pred
+			}
+			return render(request,"home.html",output)
 	except:
 		pass 
 	return render(request,"home.html")
