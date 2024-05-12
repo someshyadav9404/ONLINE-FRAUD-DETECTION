@@ -24,8 +24,11 @@ def homepage(request):
 				transfer=1
 			prediction=[]
 			test=pd.DataFrame(data=[[step,amt,ob,nb,rob,rnb,cash_out,debit,payment,transfer]],columns=['step', 'amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest','newbalanceDest', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER'])
+			test
 			for i in range(len(models)):
+				print(i)
 				prediction.append(models[i].predict(test))
+			print(prediction)
 			if prediction.count(0)>prediction.count(1):
 				print("NoFraud")
 			else:
