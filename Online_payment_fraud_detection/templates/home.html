@@ -34,16 +34,16 @@
 
         .form {
             margin-bottom:0px;
-            padding: 50px;
+            padding: 30px;
             text-align: center;
             position: absolute;
             bottom: 0px;
-            background-color: #fff;
+            background-color: #98d9d4;
 
         }
 
         .formrow div {
-            margin: 20px;
+            margin: 30px;
             margin-bottom: 0px;
         }
 
@@ -59,22 +59,23 @@
             font-size: 30px;
             border-radius: 10%;
         }
-
-        .user {
-            height: 110px;
-            width: 250px;
-            background-color: #83effd;
-            text-align: center;
-            border-style: solid;
-            border-radius: 20px;
-            margin: auto;
-            margin-top: 200px;
-        }
-        h1{
+        h1,a{
             font-style: italic;
             color:#83effd;
             font-size: 50px;
+            text-decoration: none;
         }
+        .logout div{
+            display:inline-block;
+        }
+        button{
+            margin:10px;
+            height:50px;
+            width:100px;
+            border: solid 5px;
+            border-radius:10px;
+            color:blue;
+            }
     </style>
 </head>
 
@@ -84,8 +85,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     {% if user.is_authenticated %}
-    <h1>Hi {{user.username}}!</h1>
-    <a href="{% url 'logout' %}">Logout</a>
+    <div class="logout">
+    <div><h1>Hi {{user.username}}!</h1></div>
+    <div style="float: right;"><h1><a  href="{% url 'logout' %}">Logout</a></h1></div></div>
     <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Holy guacamole!</strong> You should check in on some of those fields below.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -152,4 +154,3 @@
     {% endif %}
 </body>
 </html>
-login
