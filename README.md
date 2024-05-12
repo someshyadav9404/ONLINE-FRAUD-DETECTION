@@ -9,9 +9,9 @@ Step 1:-Use following link to move to folder
 
 click allow for permission
 
-Step 2:-Use given link to install django framework
+Step 2:-Use given link to install requirement
 
-        pip install django
+        pip install -r requirement.txt
 
 Step 3:-Use given link to create a user
 
