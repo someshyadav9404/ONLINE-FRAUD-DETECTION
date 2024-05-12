@@ -1,7 +1,7 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render,redirect
 import joblib
-models=joblib.load(Trained_model.save)
+models=joblib.load('Trained_model.save')
 def homepage(request):
 	try:
 		step = request.POST.get('step')    
