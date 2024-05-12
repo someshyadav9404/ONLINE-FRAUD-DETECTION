@@ -1,5 +1,6 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render,redirect
+import pandas as pd
 import joblib
 models=joblib.load('Trained_model.save')
 def homepage(request):
@@ -22,8 +23,10 @@ def homepage(request):
 			else:
 				transfer=1
 			prediction=[]
+			test=pd.DataFrame(data=[[step,amt,ob,nb,rob,rnb,cash_out,debit,payment,transfer]],columns=['step', 'amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest',
+       'newbalanceDest', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER'])
 			for i in range(len(models)):
-				prediction.append(models[i].predict([[step,amt,ob,nb,rob,rnb,cash_out,debit,payment,transfer]]))
+				prediction.append(models[i].predict(test))
 			if prediction.count(0)>prediction.count(1):
 				print("NoFraud")
 			else:
