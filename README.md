@@ -3,15 +3,15 @@ model achieves about 99% accuracy
 
 Please follow the given step to run it
 
-Step 1:-Use following link to move to folder
-        
-        cd Online_payment_fraud_detection
+Step 1:-Use given link to install requirement
+
+        pip install -r requirement.txt
 
 click allow for permission
 
-Step 2:-Use given link to install requirement
-
-        pip install -r requirement.txt
+Step 2:-Use following link to move to folder
+        
+        cd Online_payment_fraud_detection
 
 Step 3:-Use given link to create a user
 
