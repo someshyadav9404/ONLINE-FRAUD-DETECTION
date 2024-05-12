@@ -5,7 +5,7 @@ import joblib
 models=joblib.load('Trained_model.save')
 def homepage(request):
 	try:
-		if request.method == "get":
+		if request.method == "GET":
 			step = request.GET.get('step')    
 			txn  = request.GET.get('transaction')
 			amt  = int(request.GET.get('amount'))
