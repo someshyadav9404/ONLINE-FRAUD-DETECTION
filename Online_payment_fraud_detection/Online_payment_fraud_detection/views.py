@@ -50,3 +50,9 @@ def homepage(request):
 	except:
 		pass 
 	return render(request,"home.html")
+
+def indexpage(request):
+	return render(request,"index.html")
+
+def aboutuspage(request):
+	return render(request,"aboutus.html")
