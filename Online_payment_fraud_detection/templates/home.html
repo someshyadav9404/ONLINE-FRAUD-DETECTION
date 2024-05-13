@@ -1,112 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        body {
-            background-image: url("static/images/mainpage.jpg"); 
-            background-size:cover;
-            background-position:center;
-            height:100vh;
-            margin:0;
-        }
-
-        .head {
-            text-align: center;
-            font-size: 50px;
-            color: rgb(3, 0, 0);
-        }
-
-        .formrow {
-            display: inline-flex;
-            text-align: center;
-        }
-
-        .form {
-            margin-bottom:0px;
-            padding: 30px;
-            text-align: center;
-            position: absolute;
-            bottom: 0px;
-            background-color: #98d9d4;
-
-        }
-
-        .formrow div {
-            margin: 30px;
-            margin-bottom: 0px;
-        }
-
-        label {
-            font-size: larger;
-        }
-
-        input {
-            font-size: 20px;
-        }
-
-        input.btn {
-            font-size: 30px;
-            border-radius: 10%;
-        }
-        h1,a{
-            font-style: italic;
-            color:#83effd;
-            font-size: 50px;
-            text-decoration: none;
-            text-transform:uppercase;
-            border-radius:10px;
-        }
-        a:hover{
-            background-color:white;
-            transition:1s;
-        }
-        .logout div{
-            display:inline-block;
-        }
-        button{
-            margin:10px;
-            height:50px;
-            width:100px;
-            border: solid 5px;
-            border-radius:10px;
-            color:blue;
-        }
-        input{
-            border-radius:10px;
-        }
-    </style>
-</head>
-
-<body>{% if output %}<div class="alert alert-primary alert-dismissible fade show" role="alert">
+{% extends "base.html" %}{% block base %}
+    {% if output %}<div class="alert alert-primary alert-dismissible fade show" role="alert">
                             <strong>Hey {{user.username}}</strong> The input data is {{ output }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>{% endif %}
-     
-    {% if user.is_authenticated %}
-    <div class="logout">
-    <div><h1>Hi {{user.username}}!</h1></div>
-    <div style="float: right;"><h1><a  href="{% url 'login' %}">Logout</a></h1></div></div>
-    <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div> -->
-    <div class="head">
-        <h1>Online Payment Fraud Detection</h1>
-    </div>
     <div class="form">
         <form method="get">
-            <div class="formrow">
                 <div>
                     <label for="step"> Step:</label>
                     <input type="number" name="step" id="" value="{{step}}">
@@ -125,8 +23,8 @@
                     <label for="amount"> Enter the Amount:</label>
                     <input type="number" name="amount" id="" value="{{amt}}">
                 </div>
-            </div>
-            <div class="formrow">
+            
+            
                 <div>
                     <label for="Customerid">Customerid:</label>
                     <input type="text" name="Customerid" value="{{cid}}">
@@ -139,8 +37,6 @@
                     <label for="New Balance"> New Balance:</label>
                     <input type="number" name="New Balance" value="{{nb}}">
                 </div>
-            </div>
-            <div class="formrow">
                 <div>
                     <label for="Recipientid">Recipientid:</label>
                     <input type="text" name="Recipientid" value="{{rid}}">
@@ -153,13 +49,9 @@
                     <label for="Recipient New Balance">Recipient New Balance:</label>
                     <input type="number" name="Recipient New Balance" value="{{rnb}}">
                 </div>
-            </div>
             <div><button type="submit">submit</button></div>
         </form>
     </div>
-    {% else %} <div class="logout">
-        <div><h1>You are not logged in</h1></div>
-    <div style="float:right;"><h1><a href="{% url 'login' %}">login</a></h1></div></div>
-    {% endif %}
+{% endblock base %}
 </body>
 </html>
