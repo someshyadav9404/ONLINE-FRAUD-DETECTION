@@ -56,3 +56,6 @@ def indexpage(request):
 
 def aboutuspage(request):
 	return render(request,"aboutus.html")
+
+def hiwpage(request):
+	return render(request,"hiw.html")

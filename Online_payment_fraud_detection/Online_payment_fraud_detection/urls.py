@@ -22,7 +22,8 @@ from Online_payment_fraud_detection import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("aboutus",views.aboutuspage),
-    path("login/",include("django.contrib.auth.urls")),
-    path("",views.indexpage),
+    path("accounts/",include("django.contrib.auth.urls")),
+    path("",views.indexpage,name='index'),
     path("home",views.homepage),
+    path("hiw",views.hiwpage),
 ]
