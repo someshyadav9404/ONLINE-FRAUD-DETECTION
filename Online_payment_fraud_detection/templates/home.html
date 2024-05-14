@@ -1,57 +1,90 @@
-{% extends "base.html" %}{% block base %}
-    {% if output %}<div class="alert alert-primary alert-dismissible fade show" role="alert">
-                            <strong>Hey {{user.username}}</strong> The input data is {{ output }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>{% endif %}
-    <div class="form">
-        <form method="get">
-                <div>
+{% extends "base.html" %}
+{% block home %}class="activ"{% endblock %}
+{% block base %}
+<div class="form">
+    <form  method="get">
+        <table>
+            <tr>
+                <td>
                     <label for="step"> Step:</label>
+                </td>
+                <td>
                     <input type="number" name="step" id="" value="{{step}}">
-                </div>
-                <div>
+                </td>
+                <td>
                     <label for="name"> Type of transaction:</label>
-                    <select name="transaction" id="transaction">
+                </td>
+                <td><select name="transaction" id="transaction">
                         <option value="CASH_OUT">CASH_OUT</option>
                         <option value="CASH_IN">CASH_IN</option>
                         <option value="PAYMENT">PAYMENT</option>
                         <option value="TRANSFER">TRANSFER</option>
                     </select>
-
-                </div>
-                <div>
+                </td>
+                <td>
                     <label for="amount"> Enter the Amount:</label>
-                    <input type="number" name="amount" id="" value="{{amt}}">
-                </div>
-            
-            
-                <div>
+                </td>
+                <td><input type="number" name="amount" id="" value="{{amt}}">
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <label for="Customerid">Customerid:</label>
-                    <input type="text" name="Customerid" value="{{cid}}">
-                </div>
-                <div>
+                </td>
+                <td><input type="text" name="Customerid" value="{{cid}}">
+                </td>
+                <td>
                     <label for="Old Balance"> Old Balance:</label>
-                    <input type="number" name="Old Balance" value="{{ob}}">
-                </div>
-                <div>
+                </td>
+                <td><input type="number" name="Old Balance" value="{{ob}}">
+                </td>
+                <td>
                     <label for="New Balance"> New Balance:</label>
-                    <input type="number" name="New Balance" value="{{nb}}">
-                </div>
-                <div>
+                </td>
+                <td><input type="number" name="New Balance" value="{{nb}}">
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <label for="Recipientid">Recipientid:</label>
-                    <input type="text" name="Recipientid" value="{{rid}}">
-                </div>
-                <div>
+                </td>
+                <td><input type="text" name="Recipientid" value="{{rid}}">
+                </td>
+                <td>
                     <label for="Recipient Old Balance"> Recipient Old Balance:</label>
-                    <input type="number" name="Recipient Old Balance" value="{{rob}}">
-                </div>
-                <div>
+                </td>
+                <td><input type="number" name="Recipient Old Balance" value="{{rob}}">
+                </td>
+                <td>
                     <label for="Recipient New Balance">Recipient New Balance:</label>
-                    <input type="number" name="Recipient New Balance" value="{{rnb}}">
+                </td>
+                <td><input type="number" name="Recipient New Balance" value="{{rnb}}">
+                </td>
+            </tr>
+        </table>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            submit
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hi! {{ user.username}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div style="color: black;" class="modal-body">
+                        The input data is  {{ output }} <br><hr>
+                    </div><hr>
                 </div>
-            <div><button type="submit">submit</button></div>
-        </form>
-    </div>
+            </div>
+        </div>
+    
+    </form>
+</div>
 {% endblock base %}
 </body>
+
 </html>

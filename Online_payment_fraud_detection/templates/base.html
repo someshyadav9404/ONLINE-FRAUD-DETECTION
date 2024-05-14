@@ -23,9 +23,27 @@
             font-weight: 400;
             font-style: normal;
         }
+        .form{
+            padding: 25px;
+            
+        }
+        h5{
+            color: black;
+        }
+ 
+        td,tr{
+            padding: 30px;
+        }
+        input,select{
+            border-radius: 10px;
+            background-color:rgba(106, 216, 220,0.8);
+            color:black;
+            font-size: 19px;
+
+        }
 
         .main {
-            margin: 50px;
+            margin:50px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 30px;
         }
@@ -36,7 +54,7 @@
         }
 
         .corousel {
-            height: 400px;
+            height: 380px;
             display: flex;
             background: rgba(71, 70, 70, 0.2);
             margin: 50px;
@@ -79,6 +97,21 @@
         button {
             margin: 30px;
         }
+        .submit{
+            margin:auto;
+            text-align: center;
+        }
+        .submit button{
+            border-radius: 15px;
+            height:40px;
+            width:100px;
+            background-color: #4fb6d0;
+        }
+        .submit button:hover{
+            text-shadow: #4fb6d0 5px;
+            height:42px;
+            width:104px;
+        }
 
         h1 {
             font-size: 70px;
@@ -112,7 +145,12 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/">
-                            <h2 {% block home %}{% endblock %}>Home</h2>
+                            <h2 {% block index %}{% endblock %}>Home</h2>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hiw">
+                            <h2 {% block hiw %}{% endblock %}>How It Works</h2>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -120,18 +158,19 @@
                             <h2 {% block aboutus %}{% endblock %}>AboutUs</h2>
                         </a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="/home">
-                            <h2 >How It Works</h2>
+                            <h2 style="font-size: 25px;" {% block home %}{% endblock %}>Fraud Predictor</h2>
                         </a>
                     </li>
                 </ul>
-                {% if user.is_authenticated %}<div style="font-size:30px;" > hello {{user.username}}</div><a href="{% url "login" %}"> <button class="btn btn-outline-light" type="submit">LOGOUT</button></a>
+                <div style="font-size:30px;" > hello {{user.username}}</div><a href="{% url "logout" %}"> <button class="btn btn-outline-light" type="submit">LOGOUT</button></a>
                 {% else %}
-
+            </ul>
                 <a href="{% url "login" %}"> <button class="btn btn-outline-light" type="submit">LOGIN</button></a>
                 {% endif %}
-            </div>
+            </di>
         </div>
     </nav>
     {% block base %}
