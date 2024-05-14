@@ -13,14 +13,22 @@ Step 2:-Use following link to move to folder
         
         cd Online_payment_fraud_detection
 
-Step 3:-Use given link to create a user
-
-        python manage.py createsuperuser
-
-password is hidden
-
-Step 4:-Use given link to run the server
+Step 3:-Use given link to run the server
         
         python manage.py runserver 0.0.0.0:8000
 
 ctrl + click on the link
+
+Step 4:-Go through the described contents
+
+Step 5:-login as a admin using
+        username: admin
+        password: admin
+and after login go to the admin page
+
+Step 6:-Click on add user and add yourself as a new user with username and password
+
+Step 7:-Click on logout and re-login with your new id and password
+
+Step 8:-now you will get a new navigation element as fraud detector 
+        go on it ,enter the data and check whether it is valid or not
