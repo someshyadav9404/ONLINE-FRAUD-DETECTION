@@ -35,7 +35,7 @@ def homepage(request):
 			else:
 				print("Fraud")
 				pred = "Fraud"
-			output={
+			data={
 				'output':pred,
 				'step':step,
 				'amt':amt,
@@ -46,7 +46,7 @@ def homepage(request):
 				'cid':cid,
 				'rid':rid
 			}
-			return render(request,"home.html",output)
+			return render(request,"home.html",data)
 	except:
 		pass 
 	return render(request,"home.html")

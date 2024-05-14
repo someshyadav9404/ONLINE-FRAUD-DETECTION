@@ -2,14 +2,14 @@
 {% block home %}class="activ"{% endblock %}
 {% block base %}
 <div class="form">
-    <form  method="get">
+    <form  method="GET">
         <table>
             <tr>
                 <td>
                     <label for="step"> Step:</label>
                 </td>
                 <td>
-                    <input type="number" name="step" id="" value="{{step}}">
+                    <input required  type="number" name="step" id="" value="{{step}}">
                 </td>
                 <td>
                     <label for="name"> Type of transaction:</label>
@@ -24,50 +24,63 @@
                 <td>
                     <label for="amount"> Enter the Amount:</label>
                 </td>
-                <td><input type="number" name="amount" id="" value="{{amt}}">
+                <td><input required  type="number" name="amount" id="" value="{{amt}}">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="Customerid">Customerid:</label>
                 </td>
-                <td><input type="text" name="Customerid" value="{{cid}}">
+                <td><input  required type="text" name="Customerid" value="{{cid}}">
                 </td>
                 <td>
                     <label for="Old Balance"> Old Balance:</label>
                 </td>
-                <td><input type="number" name="Old Balance" value="{{ob}}">
+                <td><input required  type="number" name="Old Balance" value="{{ob}}">
                 </td>
                 <td>
                     <label for="New Balance"> New Balance:</label>
                 </td>
-                <td><input type="number" name="New Balance" value="{{nb}}">
+                <td><input required type="number" name="New Balance" value="{{nb}}">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="Recipientid">Recipientid:</label>
                 </td>
-                <td><input type="text" name="Recipientid" value="{{rid}}">
+                <td><input required  type="text" name="Recipientid" value="{{rid}}">
                 </td>
                 <td>
                     <label for="Recipient Old Balance"> Recipient Old Balance:</label>
                 </td>
-                <td><input type="number" name="Recipient Old Balance" value="{{rob}}">
+                <td><input required  type="number" name="Recipient Old Balance" value="{{rob}}">
                 </td>
                 <td>
                     <label for="Recipient New Balance">Recipient New Balance:</label>
                 </td>
-                <td><input type="number" name="Recipient New Balance" value="{{rnb}}">
+                <td><input required  type="number" name="Recipient New Balance" value="{{rnb}}">
                 </td>
             </tr>
         </table>
         <!-- Button trigger modal -->
-        <center><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            submit
+        <center><button type="submit" class="btn btn-primary" >
+        submit
         </button></center>
-        
-        <!-- Modal -->
+        {% if output == 'not fraud' %}
+        <div style="height:200px;width:350px;position:absolute;margin-top:-350px;margin-left:550px;font-size:20px;border:green 5px solid;border-radius:20px;background-color:rgba(157, 222, 139,0.9);" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong >Hello!  {{user.username}}<hr></strong> Your Input data is {{output}}<br><hr>
+            <button style="padding:5x;font-size:10px;margin-top:10px;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>{% elif output == 'fraud' %}
+    
+        <div style="height:200px;width:350px;position:absolute;margin-top:-350px;margin-left:550px;font-size:20px;border:red 5px solid;border-radius:20px;background-color:rgba(250, 112, 112,0.9);" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong >Hello!  {{user.username}}<hr></strong> Your Input data is {{output}}<br><hr>
+            <button style="padding:5x;font-size:10px;margin-top:10px;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          {% comment %} </div>{% else %}
+          
+          <div style="height:200px;width:350px;position:absolute;margin-top:-350px;margin-left:550px;font-size:20px;border-radius:20px;" class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong >Hello!  {{user.username}}<hr></strong> Please enter the required data<br><hr>
+              <button style="padding:5x;font-size:10px;margin-top:10px;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> {% endcomment %}
+            </div>{% endif %}
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -76,7 +89,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div style="color: black;" class="modal-body">
-                        The input data is  {{ output }} <br><hr>
+                        The input data is {{output}} <br><hr>
                     </div><hr>
                 </div>
             </div>
