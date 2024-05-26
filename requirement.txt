@@ -1,2 +1,5 @@
 xgboost
 django
+pandas
+joblib
+scikit-learn
