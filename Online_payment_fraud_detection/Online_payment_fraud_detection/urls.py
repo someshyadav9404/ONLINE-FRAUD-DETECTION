@@ -1,3 +1,4 @@
+
 """
 URL configuration for Online_payment_fraud_detection project.
 
@@ -21,9 +22,12 @@ from Online_payment_fraud_detection import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("aboutus",views.aboutuspage),
-    path("accounts/",include("django.contrib.auth.urls")),
+    path("aboutus",views.aboutuspage,name='about'),
+    path("registration/",include("django.contrib.auth.urls")),
     path("",views.indexpage,name='index'),
     path("home",views.homepage),
+    path("login_user",views.login_user,name='login'),
+    path("logout_user",views.logout_user,name='logout'),
     path("hiw",views.hiwpage),
 ]
+
