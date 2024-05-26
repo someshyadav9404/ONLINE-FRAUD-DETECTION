@@ -146,13 +146,20 @@
         }
     </style>
 </head>
+{% if messages %}
+{% for message in messages  %}
+<div style="position:absolute;margin-left:600px;" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>hey user</strong> {{message}}
+    <button style="margin:1px;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}{% endif %}
 
 <div class="main">
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"> <img class="img"
-                    src="https://play-lh.googleusercontent.com/24M7SQ5RmZVxGe0NuLdD4y6Y18sr2KqDLliRxe4IXXPe7RLhuNhw0juEvMT_822mt9ET=w240-h480-rw"
-                    alt=""></a>
+                src="https://play-lh.googleusercontent.com/24M7SQ5RmZVxGe0NuLdD4y6Y18sr2KqDLliRxe4IXXPe7RLhuNhw0juEvMT_822mt9ET=w240-h480-rw"
+                alt=""></a>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -189,7 +196,7 @@
                     </a>
                     <ul style="background-color: rgba(0, 0, 0, 0.5);" class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a id="a" style="color:aliceblue;" class="dropdown-item" href="admin/">ADMIN</a></li>
-                      <li><a id="a" style="color:aliceblue;" class="dropdown-item" href="#">LOGOUT</a></li>
+                      <li><a id="a" style="color:aliceblue;" class="dropdown-item" href="{% url "logout" %}">LOGOUT</a></li>
                       <li><hr style="color:aliceblue;" class="dropdown-divider"></li>
                       <li><a id="a" style="color:aliceblue;" class="dropdown-item" href="https://www.geeksforgeeks.org/online-payment-fraud-detection-using-machine-learning-in-python/">More about FDS</a></li>
                     </ul>
