@@ -1,17 +1,17 @@
 {% extends "base.html" %}{% block base %}
 <div class="content">
-    <form style="margin-left: 300px;" method="post">
+    <form style="margin-left: 300px;" method="POST">
         {% csrf_token %}
         <!-- Email input -->
         <div>
-            <input type="text" name="username" class=" form-control-lg" />
+            <input type="text" required name="username" class=" form-control-lg" />
             <br><br>
             <label class="form-label" for="form1Example13">Username</label><br>
         </div>
 
         <!-- Password input -->
         <div>
-            <input type="password" name="password" class=" form-control-lg" /><br><br>
+            <input type="password" required name="password" class=" form-control-lg" /><br><br>
             <label class="form-label" for="form1Example23">Password</label><br>
         </div>
         <!-- Submit button -->
