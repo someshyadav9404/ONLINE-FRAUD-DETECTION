@@ -19,15 +19,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 from Online_payment_fraud_detection import views
+from carousel.views import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("aboutus",views.aboutuspage,name='about'),
     path("registration/",include("django.contrib.auth.urls")),
     path("",views.indexpage,name='index'),
-    path("home",views.homepage),
+    path("fraud_detector",views.homepage),
     path("login_user",views.login_user,name='login'),
     path("logout_user",views.logout_user,name='logout'),
     path("hiw",views.hiwpage),
+    path("carousel",carousel),
+
 ]
 
